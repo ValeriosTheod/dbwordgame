@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dbWord Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="assets/keys/dbWordHdr.jpg" alt="dbWord Header" class="header-image">
+        
+        <div class="instructions">
+            <h2>Guessing The Word</h2>
+            <p>
+                You will have 5 chances to guess a five-letter word within 1-5 minutes. You're given a one letter hint.
+                After submitting each guess, your answer will be displayed with each letter color coded as follows:
+            <strong style="color: rgb(76, 76, 76);">GRAY:</strong> The letter is not in the word. <strong style="color: green;">GREEN:</strong> The letter is in the word, wrong position. <strong style="color: blue;">BLUE:</strong> The letter is in the word, correct position.
+                When you guess the correct word, all letters will be displayed in <strong style="color: blue;">BLUE</strong>.
+                Set Timer for 1-5 minutes (default 3), then press START to play.
+                You'll be able to repeat playing <strong style="color: #07436A;">dbWord</strong> multiple times.
+            </p>
+            <label for="timer" style="color: #07436A;">Timer:</label>
+            <select id="timer">
+                <option value="1">1 Minute</option>
+                <option value="2">2 Minutes</option>
+                <option value="3" selected>3 Minutes</option>
+                <option value="4">4 Minutes</option>
+                <option value="5">5 Minutes</option>
+            </select>
+            <br>
+            <button id="start-game">
+                <img src="assets/buttons/StartBut2.jpg" alt="Start Button">
+            </button>
+            <!-- Footer -->
+            <footer class="footer">
+                <p>Copyright CPC Systems</p>
+                <a href="mailto:Info@dbWord.com">Info@dbWord.com</a>
+            </footer>
+        </div>
+        <div id="game-board" class="game-board hidden">
+            <div id="timer-display"></div>
+            <div id="word-grid"></div>
+            <div id="word-grid-container"></div>
+            <div class="keyboard">
+                <p id="continue-instruction" style="font-size: 1.2rem; color: #004085; display: none;">Press Enter to Continue</p>
+            <div id="virtual-keyboard"></div>
+            </div>
+        </div>
+        <div id="game-over" class="hidden">
+            <div id="game-over-image"></div>
+            <div id="game-results"></div>
+            <button id="try-again">
+                <img src="assets/buttons/TryAgain.jpg" alt="Try Again Button">
+            </button>
+            <div id="ad-banner">
+                <img src="assets/AdsNew.jpg" alt="Advertisement">
+            </div>
+            <footer class="footer">
+                <p>Copyright CPC Systems</p>
+                <a href="mailto:Info@dbWord.com">Info@dbWord.com</a>
+            </footer>
+        </div>
+        <div id="daily-limit-reached" class="hidden">
+            <div id="daily-limit-image">
+                <img src="assets/states/LicSorryEdt.jpg" alt="Sorry">
+            </div>
+            <p>Daily Maximum Words (5) Reached</p>
+            <p>Come Back Again Tomorrow</p>
+            <p>Thanks For Visiting <strong style="color: #07436A;">dbWord</strong></p>
+            <div id="ad-banner">
+                <img src="assets/AdsNew.jpg" alt="Advertisement">
+            </div>
+            <footer class="footer">
+                <p>Copyright CPC Systems</p>
+                <a href="mailto:Info@dbWord.com">Info@dbWord.com</a>
+            </footer>
+        </div>        
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
