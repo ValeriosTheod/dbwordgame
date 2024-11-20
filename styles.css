@@ -451,3 +451,24 @@ img {
     max-width: 300px; /* Όριο για μικρές οθόνες */
     padding: 0 10px; /* Ευθυγράμμιση για να μην κρύβονται οι άκρες */
 }
+@media only screen and (max-width: 390px) {
+    /* Ρύθμιση του πληκτρολογίου */
+    #virtual-keyboard {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr); /* Εξασφάλιση 10 στήλες */
+        gap: 4px; /* Κενό ανάμεσα στα πλήκτρα */
+        justify-content: center; /* Κέντρο στο πλάτος της οθόνης */
+        padding: 10px;
+        width: 100%; /* Καταλαμβάνει όλο το πλάτος της οθόνης */
+        box-sizing: border-box; /* Συμπερίληψη padding στο πλάτος */
+    }
+
+    #virtual-keyboard button {
+        width: 100%; /* Τα πλήκτρα προσαρμόζονται δυναμικά */
+        max-width: 35px; /* Μέγιστο πλάτος κουμπιών */
+        height: 40px; /* Σταθερό ύψος κουμπιών */
+        font-size: 1rem; /* Επαρκές μέγεθος γραμματοσειράς */
+        padding: 4px;
+    }
+}
+
