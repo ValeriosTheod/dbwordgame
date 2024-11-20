@@ -7,7 +7,7 @@ let wordList = [];
 let winningStreak = 0; // Αρχική τιμή για το streak
 let wordRevealed = false; // Νέα κατάσταση για αποκάλυψη λέξης
 let timerInterval; // Μεταβλητή για αποθήκευση του ID του setInterval
-const dailyGameLimit = 10; // Μέγιστο παιχνίδια ανά ημέρα
+const dailyGameLimit = 5; // Μέγιστο παιχνίδια ανά ημέρα
 let gamesPlayedToday = 0;
 
 // Έλεγχος αν τοπικά υπάρχει αποθηκευμένο το gamesPlayedToday
@@ -51,6 +51,10 @@ function startGame() {
         showDailyLimitMessage();
         return;
     }
+
+    // Αύξηση του μετρητή παιχνιδιών και αποθήκευση στο localStorage
+    gamesPlayedToday++;
+    localStorage.setItem("gamesPlayedToday", gamesPlayedToday);
 
     const timerSelect = document.getElementById("timer");
     remainingTime = parseInt(timerSelect.value) * 60;
