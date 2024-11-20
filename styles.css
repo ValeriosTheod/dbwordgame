@@ -548,4 +548,11 @@ img {
         padding: 8px; /* Περισσότερο padding */
     }
 }
-
+.footer {
+    margin-top: 20px;
+    border-top: 3px solid blue;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #333;
+}
