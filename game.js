@@ -335,7 +335,6 @@ document.addEventListener("keydown", function(event) {
 
 
 
-
 function getRandomWord() {
     return wordList[Math.floor(Math.random() * wordList.length)];
 }
