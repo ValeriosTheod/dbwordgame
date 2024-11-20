@@ -451,24 +451,100 @@ img {
     max-width: 300px; /* Όριο για μικρές οθόνες */
     padding: 0 10px; /* Ευθυγράμμιση για να μην κρύβονται οι άκρες */
 }
-@media only screen and (max-width: 390px) {
-    /* Ρύθμιση του πληκτρολογίου */
+@media only screen and (max-width: 400px) {
+    body {
+        overflow-x: hidden;
+        font-size: 12px;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0 5px;
+    }
+
     #virtual-keyboard {
         display: grid;
-        grid-template-columns: repeat(10, 1fr); /* Εξασφάλιση 10 στήλες */
-        gap: 4px; /* Κενό ανάμεσα στα πλήκτρα */
-        justify-content: center; /* Κέντρο στο πλάτος της οθόνης */
-        padding: 10px;
-        width: 100%; /* Καταλαμβάνει όλο το πλάτος της οθόνης */
-        box-sizing: border-box; /* Συμπερίληψη padding στο πλάτος */
+        grid-template-columns: repeat(10, 1fr);
+        gap: 2px;
+        width: 100%;
     }
 
     #virtual-keyboard button {
-        width: 100%; /* Τα πλήκτρα προσαρμόζονται δυναμικά */
-        max-width: 35px; /* Μέγιστο πλάτος κουμπιών */
-        height: 40px; /* Σταθερό ύψος κουμπιών */
-        font-size: 1rem; /* Επαρκές μέγεθος γραμματοσειράς */
-        padding: 4px;
+        width: auto;
+        flex: 0 1 calc(10% - 2px);
+        height: 35px;
+        font-size: 0.8rem;
+        padding: 2px;
+    }
+
+    #virtual-keyboard button.special-key {
+        flex: 0 1 calc(20% - 2px);
+        max-width: 60px;
+        height: 40px;
+    }
+
+    .word-cell {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .hint-row {
+        grid-template-columns: repeat(5, minmax(35px, 1fr));
+        gap: 5px;
+        justify-content: center;
+    }
+
+    #word-grid-container {
+        padding: 0 5px;
     }
 }
+@media only screen and (max-width: 400px) {
+    #virtual-keyboard {
+        display: flex;
+        flex-wrap: wrap; /* Επιτρέπει την αναδίπλωση πλήκτρων σε γραμμές */
+        justify-content: center; /* Κέντρο στην οθόνη */
+        gap: 5px;
+        padding: 10px;
+    }
 
+    #virtual-keyboard button {
+        flex: 0 1 calc(10% - 5px); /* Δυναμικό πλάτος με κενά */
+        max-width: 35px; /* Όριο μεγέθους για μικρότερες οθόνες */
+        height: 35px;
+        font-size: 0.8rem; /* Μικρότερη γραμματοσειρά */
+    }
+
+    #virtual-keyboard button.special-key {
+        flex: 0 1 calc(20% - 5px); /* Μεγαλύτερο πλάτος για Enter και Backspace */
+        max-width: 50px; /* Πλάτος ειδικών πλήκτρων */
+        height: 40px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    #virtual-keyboard {
+        display: flex;
+        flex-wrap: wrap; /* Αναδίπλωση κουμπιών */
+        justify-content: center; /* Κεντρική ευθυγράμμιση */
+        gap: 4px; /* Μείωση κενού */
+        padding: 10px;
+    }
+
+    #virtual-keyboard button {
+        flex: 0 1 calc(10% - 4px); /* Δυναμικό πλάτος */
+        max-width: 45px; /* Μεγαλύτερο πλάτος */
+        height: 45px; /* Αυξημένο ύψος */
+        font-size: 1rem; /* Μεγαλύτερη γραμματοσειρά */
+        padding: 6px; /* Περισσότερο padding */
+    }
+
+    #virtual-keyboard button.special-key {
+        flex: 0 1 calc(20% - 4px); /* Πλάτος για Enter και Backspace */
+        max-width: 70px; /* Μεγαλύτερο πλάτος για ειδικά κουμπιά */
+        height: 50px; /* Μεγαλύτερο ύψος */
+        font-size: 1rem; /* Γραμματοσειρά ίδια με τα άλλα κουμπιά */
+        padding: 8px; /* Περισσότερο padding */
+    }
+}
