@@ -548,7 +548,4 @@ img {
         padding: 8px; /* Περισσότερο padding */
     }
 }
-#virtual-keyboard button {
-    touch-action: manipulation; /* Αποτρέπει το double-tap zoom */
-}
 
