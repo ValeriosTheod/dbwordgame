@@ -414,3 +414,30 @@ img {
     display: block; /* Το μήνυμα να εμφανίζεται πάντα */
     margin-top: 10px;
 }
+@media only screen and (max-width: 320px) {
+    /* Ρύθμιση του πληκτρολογίου */
+    #virtual-keyboard {
+        display: flex;
+        flex-wrap: wrap; /* Εξασφάλιση ότι τα πλήκτρα τυλίγονται σε γραμμές αν χρειαστεί */
+        justify-content: center; /* Κέντρο στο πλάτος της οθόνης */
+        gap: 6px; /* Κενό ανάμεσα στα πλήκτρα */
+        width: 100%; /* Πλήρης χρήση του διαθέσιμου πλάτους */
+    }
+
+    #virtual-keyboard button {
+        flex: 0 1 calc(10% - 6px); /* Κάθε πλήκτρο καταλαμβάνει 10% του πλάτους με κενά */
+        max-width: 38px; /* Ακόμα μεγαλύτερο μέγιστο πλάτος */
+        height: 42px; /* Αυξημένο ύψος */
+        font-size: 1rem; /* Μεγαλύτερη γραμματοσειρά */
+        padding: 4px; /* Προσθήκη padding για άνετη χρήση */
+    }
+
+    /* Ειδική ρύθμιση για μεγαλύτερα πλήκτρα (Enter, Backspace) */
+    #virtual-keyboard button.special-key {
+        flex: 0 1 calc(20% - 6px); /* Τα ειδικά πλήκτρα καταλαμβάνουν περισσότερο χώρο */
+        max-width: 60px; /* Μεγαλύτερο πλάτος για Enter και Backspace */
+        height: 42px; /* Διατήρηση ίδιου ύψους */
+        font-size: 1rem; /* Γραμματοσειρά ίδια με τα άλλα πλήκτρα */
+        padding: 4px;
+    }
+}
