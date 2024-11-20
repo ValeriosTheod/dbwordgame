@@ -441,3 +441,13 @@ img {
         padding: 4px;
     }
 }
+.hint-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Διατηρεί τις στήλες στην ίδια ευθεία */
+    gap: 10px; /* Διατήρηση του κενού ανάμεσα στα κουτιά */
+    justify-content: center; /* Κεντρική ευθυγράμμιση */
+    margin-bottom: 15px;
+    width: 100%; /* Εναρμόνιση με το πλάτος των άλλων grid */
+    max-width: 300px; /* Όριο για μικρές οθόνες */
+    padding: 0 10px; /* Ευθυγράμμιση για να μην κρύβονται οι άκρες */
+}
