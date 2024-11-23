@@ -556,3 +556,34 @@ img {
     font-size: 0.9rem;
     color: #333;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+#virtual-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #4f4f4f;
+    padding: 15px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Απόκρυψη του virtual keyboard σε μικρές οθόνες */
+@media only screen and (max-width: 768px) {
+    #virtual-keyboard {
+        display: none !important;
+    }
+}
+
