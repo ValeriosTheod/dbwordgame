@@ -6,21 +6,6 @@ body {
     padding: 0;
 }
 
-#virtual-keyboard {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    background-color: #4f4f4f;
-    padding: 15px;
-    border-radius: 10px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .header-image {
     display: block;
     margin: 20px auto;
@@ -93,7 +78,13 @@ body {
     margin: 0 auto;
 }
 
-
+#virtual-keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    grid-gap: 5px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
 
 button {
     border: none;
@@ -118,6 +109,21 @@ button img {
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+#virtual-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #4f4f4f;
+    padding: 15px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #virtual-keyboard .row {
@@ -252,8 +258,18 @@ img {
         font-size: 1.5rem;
     }
 
+    #virtual-keyboard {
+        grid-template-columns: repeat(10, 45px);
+        gap: 5px;
+        padding: 10px;
+    }
 
-   
+    #virtual-keyboard button {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
     #start-game img {
         width: 100px;
     }
@@ -302,7 +318,11 @@ img {
         width: 100%;
     }
 
-    
+    #virtual-keyboard button {
+        width: auto;
+        height: 35px;
+        font-size: 0.9rem;
+    }
 
     .word-cell {
         width: 40px;
@@ -364,9 +384,18 @@ img {
         padding: 0 10px;
     }
 
-  
+    #virtual-keyboard {
+        grid-template-columns: repeat(10, 1fr);
+        gap: 5px;
+        width: 100%;
+    }
 
- 
+    #virtual-keyboard button {
+        width: auto;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
     body {
         overflow-x: hidden;
     }
@@ -386,7 +415,31 @@ img {
     margin-top: 10px;
 }
 @media only screen and (max-width: 320px) {
- 
+    /* Ρύθμιση του πληκτρολογίου */
+    #virtual-keyboard {
+        display: flex;
+        flex-wrap: wrap; /* Εξασφάλιση ότι τα πλήκτρα τυλίγονται σε γραμμές αν χρειαστεί */
+        justify-content: center; /* Κέντρο στο πλάτος της οθόνης */
+        gap: 6px; /* Κενό ανάμεσα στα πλήκτρα */
+        width: 100%; /* Πλήρης χρήση του διαθέσιμου πλάτους */
+    }
+
+    #virtual-keyboard button {
+        flex: 0 1 calc(10% - 6px); /* Κάθε πλήκτρο καταλαμβάνει 10% του πλάτους με κενά */
+        max-width: 38px; /* Ακόμα μεγαλύτερο μέγιστο πλάτος */
+        height: 42px; /* Αυξημένο ύψος */
+        font-size: 1rem; /* Μεγαλύτερη γραμματοσειρά */
+        padding: 4px; /* Προσθήκη padding για άνετη χρήση */
+    }
+
+    /* Ειδική ρύθμιση για μεγαλύτερα πλήκτρα (Enter, Backspace) */
+    #virtual-keyboard button.special-key {
+        flex: 0 1 calc(20% - 6px); /* Τα ειδικά πλήκτρα καταλαμβάνουν περισσότερο χώρο */
+        max-width: 60px; /* Μεγαλύτερο πλάτος για Enter και Backspace */
+        height: 42px; /* Διατήρηση ίδιου ύψους */
+        font-size: 1rem; /* Γραμματοσειρά ίδια με τα άλλα πλήκτρα */
+        padding: 4px;
+    }
 }
 .hint-row {
     display: grid;
@@ -410,6 +463,27 @@ img {
         padding: 0 5px;
     }
 
+    #virtual-keyboard {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 2px;
+        width: 100%;
+    }
+
+    #virtual-keyboard button {
+        width: auto;
+        flex: 0 1 calc(10% - 2px);
+        height: 35px;
+        font-size: 0.8rem;
+        padding: 2px;
+    }
+
+    #virtual-keyboard button.special-key {
+        flex: 0 1 calc(20% - 2px);
+        max-width: 60px;
+        height: 40px;
+    }
+
     .word-cell {
         width: 35px;
         height: 35px;
@@ -427,7 +501,53 @@ img {
         padding: 0 5px;
     }
 }
+@media only screen and (max-width: 400px) {
+    #virtual-keyboard {
+        display: flex;
+        flex-wrap: wrap; /* Επιτρέπει την αναδίπλωση πλήκτρων σε γραμμές */
+        justify-content: center; /* Κέντρο στην οθόνη */
+        gap: 5px;
+        padding: 10px;
+    }
 
+    #virtual-keyboard button {
+        flex: 0 1 calc(10% - 5px); /* Δυναμικό πλάτος με κενά */
+        max-width: 35px; /* Όριο μεγέθους για μικρότερες οθόνες */
+        height: 35px;
+        font-size: 0.8rem; /* Μικρότερη γραμματοσειρά */
+    }
+
+    #virtual-keyboard button.special-key {
+        flex: 0 1 calc(20% - 5px); /* Μεγαλύτερο πλάτος για Enter και Backspace */
+        max-width: 50px; /* Πλάτος ειδικών πλήκτρων */
+        height: 40px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    #virtual-keyboard {
+        display: flex;
+        flex-wrap: wrap; /* Αναδίπλωση κουμπιών */
+        justify-content: center; /* Κεντρική ευθυγράμμιση */
+        gap: 4px; /* Μείωση κενού */
+        padding: 10px;
+    }
+
+    #virtual-keyboard button {
+        flex: 0 1 calc(10% - 4px); /* Δυναμικό πλάτος */
+        max-width: 45px; /* Μεγαλύτερο πλάτος */
+        height: 45px; /* Αυξημένο ύψος */
+        font-size: 1rem; /* Μεγαλύτερη γραμματοσειρά */
+        padding: 6px; /* Περισσότερο padding */
+    }
+
+    #virtual-keyboard button.special-key {
+        flex: 0 1 calc(20% - 4px); /* Πλάτος για Enter και Backspace */
+        max-width: 70px; /* Μεγαλύτερο πλάτος για ειδικά κουμπιά */
+        height: 50px; /* Μεγαλύτερο ύψος */
+        font-size: 1rem; /* Γραμματοσειρά ίδια με τα άλλα κουμπιά */
+        padding: 8px; /* Περισσότερο padding */
+    }
+}
 .footer {
     margin-top: 20px;
     border-top: 3px solid blue;
@@ -436,11 +556,3 @@ img {
     font-size: 0.9rem;
     color: #333;
 }
-
-/* Απόκρυψη του virtual keyboard σε μικρές οθόνες */
-@media only screen and (max-width: 768px) {
-    #virtual-keyboard {
-        display: none !important;
-    }
-}
-
